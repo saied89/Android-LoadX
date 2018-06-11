@@ -14,22 +14,47 @@
         />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <!--<include-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:layout_alignParentTop="true"-->
-            <!--layout="@layout/layout_progressbar"/>-->
+        android:layout_height="wrap_content"
+        android:background="#f4e1eb"
+        >
+        <TextView
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:text="RelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <Button
-            android:id="@+id/loadButton"
+            android:id="@+id/loadButtonRelative"
             android:layout_width="148dp"
             android:layout_height="56dp"
+            android:layout_margin="32dp"
             android:text="@string/load"
             android:textColor="#ffffff"
             android:background="@color/colorPrimary"
             android:layout_centerInParent="true"
             />
     </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e9d9ff"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LinearLayout"
+            android:layout_gravity="start"
+            />
+        <Button
+            android:id="@+id/loadButtonLinear"
+            android:layout_width="148dp"
+            android:layout_height="56dp"
+            android:layout_margin="32dp"
+            android:text="@string/load"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
 
 </LinearLayout>

@@ -10,8 +10,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        loadButton.setOnClickListener {
-            loadButton.loadingV2(true)
+        loadButtonRelative.setOnClickListener {
+            it.loadingV2(true)
+        }
+        loadButtonLinear.setOnClickListener {
+            it.loadingV2(true)
         }
     }
 }
