@@ -13,6 +13,7 @@
         android:elevation="4dp"
         />
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#f4e1eb"
@@ -35,6 +36,7 @@
             />
     </RelativeLayout>
     <LinearLayout
+        android:id="@+id/linearLayoutVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#e9d9ff"
@@ -42,7 +44,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LinearLayout"
+            android:text="LinearLayoutVertical"
             android:layout_gravity="start"
             />
         <Button
@@ -56,5 +58,27 @@
             android:layout_gravity="center"
             />
     </LinearLayout>
-
+    <LinearLayout
+        android:id="@+id/linearLayoutHorizonal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e9d9ff"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LinearLayoutHorizontal"
+            android:layout_gravity="start"
+            />
+        <Button
+            android:id="@+id/loadButtonLinearHorizontal"
+            android:layout_width="148dp"
+            android:layout_height="56dp"
+            android:layout_margin="32dp"
+            android:text="@string/load"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
 </LinearLayout>
