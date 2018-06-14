@@ -31,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         linearLayoutHorizonal.setOnClickListener {
             loadButtonLinearHorizontal.loading(false)
         }
+
+//        loadButtonLinearNegMargin.setOnClickListener {
+//         it.loading(true)
+//        }
+
 //        loadButtonConstraint.setOnClickListener {
 //            it.loadingV2(true)
 //        }

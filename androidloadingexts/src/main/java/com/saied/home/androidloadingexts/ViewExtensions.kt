@@ -72,9 +72,9 @@ private fun View.loadingLinear(showLoading: Boolean, loadingView: View){
         val loadingLayoutParams = LinearLayout.LayoutParams(layoutParams as LinearLayout.LayoutParams)
         loadingLayoutParams.apply {
             if(container.orientation == LinearLayout.VERTICAL)
-                topMargin = -(this@loadingLinear.height + topMargin)
+                topMargin = -(this@loadingLinear.height + bottomMargin)
             else
-                marginStart = -(this@loadingLinear.width + marginStart)
+                marginStart = -(this@loadingLinear.width + marginEnd)
         }
         container.addView(loadingView, container.indexOfChild(this)+1,loadingLayoutParams)
     }else{
