@@ -1,53 +1,71 @@
 package com.saied.home.androidloadingexts
 
+import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Build
 import android.support.constraint.ConstraintLayout
-import android.view.LayoutInflater
+import android.util.TypedValue
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.LinearLayout
+import me.zhanghai.android.materialprogressbar.MaterialProgressBar
 
-fun View.loadingV2(showLoading: Boolean){
+const val CONSTANT_ID_OFFSET = 376
+
+fun View.loadingV2(showLoading: Boolean,
+                   progressbarSize: Int = 40,
+                   backgroundColor: Int = Color.TRANSPARENT,
+                   progressbarColor: ColorStateList? = null,
+                   loadingView: View = generateLoadingView(progressbarSize = progressbarSize, backgroundColor = backgroundColor, progressTintList = progressbarColor)
+){
     if(parent !is ViewGroup)
         throw IllegalStateException("The parent of loading target is not a ViewGroup. Is it the rootView?. Consider wrapping the target in a FrameLayout.")
     else if(parent is LinearLayout)
-        loadingLinear(showLoading)
+        loadingLinear(showLoading, loadingView)
     else if(parent is ConstraintLayout)
         loadingConstraint(showLoading)
     else
-        loadingSimple(showLoading)
-}
-const val CONSTANT_ID_OFFSET = 376
-private fun View.loadingSimple(showLoading: Boolean){
-    throw IllegalStateException("Currently not supporting ConstraintLayout")
-//    val container = parent as ViewGroup
-//    if(showLoading){
-//        container.addView(generateLoadingView(), container.indexOfChild(this)+1, layoutParams)
-//    }else{
-//        container.removeView(container.findViewById(id - CONSTANT_ID_OFFSET))
-//    }
+        loadingSimple(showLoading, loadingView)
 }
 
-private fun View.loadingConstraint(showLoading: Boolean){
-    val container = parent as ConstraintLayout
+private fun View.generateLoadingView(progressbarSize: Int, backgroundColor: Int, progressTintList: ColorStateList?): View =
+        FrameLayout(context).apply {
+            addView(View(context).apply {
+                layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
+                setBackgroundColor(backgroundColor)
+            })
+            addView(MaterialProgressBar(context).apply {
+                layoutParams = FrameLayout.LayoutParams(dpToPixel(progressbarSize, context),
+                        dpToPixel(progressbarSize, context)).apply {
+                    gravity = Gravity.CENTER
+                }
+                if(progressTintList != null)
+                    this.progressTintList = progressTintList
+            }
+            )
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                elevation = this@generateLoadingView.elevation
+            }
+            id = this@generateLoadingView.id - CONSTANT_ID_OFFSET
+        }
+
+private fun View.loadingSimple(showLoading: Boolean, loadingView: View){
+    val container = parent as ViewGroup
     if(showLoading){
-        val loadingLayoutParams = ConstraintLayout.LayoutParams(layoutParams)
-        container.addView(generateLoadingView(), container.indexOfChild(this)+1, loadingLayoutParams)
+        container.addView(loadingView, container.indexOfChild(this)+1, layoutParams)
     }else{
         container.removeView(container.findViewById(id - CONSTANT_ID_OFFSET))
     }
 }
 
-private fun View.generateLoadingView(): View {
-    return LayoutInflater.from(context).inflate(R.layout.layout_progressbar, parent as ViewGroup, false).apply {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            elevation = this@generateLoadingView.elevation
-        }
-        id = this@generateLoadingView.id - CONSTANT_ID_OFFSET
-    }
+private fun View.loadingConstraint(showLoading: Boolean){
+    throw IllegalStateException("Currently not supporting ConstraintLayout")
 }
 
-private fun View.loadingLinear(showLoading: Boolean){
+private fun View.loadingLinear(showLoading: Boolean, loadingView: View){
     val container = parent as LinearLayout
     if(showLoading){
         val loadingLayoutParams = LinearLayout.LayoutParams(layoutParams as LinearLayout.LayoutParams)
@@ -57,9 +75,11 @@ private fun View.loadingLinear(showLoading: Boolean){
             else
                 marginStart = -(this@loadingLinear.width + marginStart)
         }
-        container.addView(generateLoadingView(), container.indexOfChild(this)+1,loadingLayoutParams)
+        container.addView(loadingView, container.indexOfChild(this)+1,loadingLayoutParams)
     }else{
         container.removeView(container.findViewById(id - CONSTANT_ID_OFFSET))
     }
 }
+
+fun dpToPixel(dp: Int, context: Context): Int = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), context.resources.displayMetrics).toInt()
 

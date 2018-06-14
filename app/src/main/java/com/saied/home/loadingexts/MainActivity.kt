@@ -11,9 +11,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        if(constraintLayout is LinearLayout)
-            println("!!!!")
-
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
         loadButtonRelative.setOnClickListener {
             it.loadingV2(true)
         }
@@ -32,11 +31,11 @@ class MainActivity : AppCompatActivity() {
         linearLayoutHorizonal.setOnClickListener {
             loadButtonLinearHorizontal.loadingV2(false)
         }
-        loadButtonConstraint.setOnClickListener {
-            it.loadingV2(true)
-        }
-        constraintLayout.setOnClickListener {
-            loadButtonConstraint.loadingV2(false)
-        }
+//        loadButtonConstraint.setOnClickListener {
+//            it.loadingV2(true)
+//        }
+//        constraintLayout.setOnClickListener {
+//            loadButtonConstraint.loadingV2(false)
+//        }
     }
 }
