@@ -3,7 +3,7 @@ package com.saied.home.loadingexts
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
-import com.saied.home.androidloadingexts.loadingV2
+import com.saied.home.androidloadingexts.loading
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,22 +14,22 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         loadButtonRelative.setOnClickListener {
-            it.loadingV2(true)
+            it.loading(true)
         }
         relativeLayout.setOnClickListener {
-            loadButtonRelative.loadingV2(false)
+            loadButtonRelative.loading(false)
         }
         loadButtonLinear.setOnClickListener {
-            it.loadingV2(true)
+            it.loading(true)
         }
         linearLayoutVertical.setOnClickListener {
-            loadButtonLinear.loadingV2(false)
+            loadButtonLinear.loading(false)
         }
         loadButtonLinearHorizontal.setOnClickListener {
-            it.loadingV2(true)
+            it.loading(true)
         }
         linearLayoutHorizonal.setOnClickListener {
-            loadButtonLinearHorizontal.loadingV2(false)
+            loadButtonLinearHorizontal.loading(false)
         }
 //        loadButtonConstraint.setOnClickListener {
 //            it.loadingV2(true)

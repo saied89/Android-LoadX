@@ -15,12 +15,12 @@ import me.zhanghai.android.materialprogressbar.MaterialProgressBar
 
 const val CONSTANT_ID_OFFSET = 376
 
-fun View.loadingV2(showLoading: Boolean,
+fun View.loading(showLoading: Boolean,
                    progressbarSize: Int = 40,
                    backgroundColor: Int = Color.TRANSPARENT,
                    progressbarColor: ColorStateList? = null,
                    loadingView: View = generateLoadingView(progressbarSize = progressbarSize, backgroundColor = backgroundColor, progressTintList = progressbarColor)
-){
+): View{
     if(parent !is ViewGroup)
         throw IllegalStateException("The parent of loading target is not a ViewGroup. Is it the rootView?. Consider wrapping the target in a FrameLayout.")
     else if(parent is LinearLayout)
@@ -29,6 +29,7 @@ fun View.loadingV2(showLoading: Boolean,
         loadingConstraint(showLoading)
     else
         loadingSimple(showLoading, loadingView)
+    return loadingView
 }
 
 private fun View.generateLoadingView(progressbarSize: Int, backgroundColor: Int, progressTintList: ColorStateList?): View =
