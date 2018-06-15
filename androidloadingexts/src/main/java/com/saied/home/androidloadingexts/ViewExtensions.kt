@@ -51,6 +51,8 @@ private fun View.generateLoadingView(progressbarSize: Int, backgroundColor: Int,
                 elevation = this@generateLoadingView.elevation
             }
             id = this@generateLoadingView.id - CONSTANT_ID_OFFSET
+            isClickable = true
+            isFocusable = true
         }
 
 private fun View.loadingSimple(showLoading: Boolean, loadingView: View){
