@@ -8,10 +8,10 @@ The library uses [MaterialProgressbar]{https://github.com/DreaminginCodeZH/Mater
 simply call `targetView.loading(true)`
 
 ### aditional parameters
-- progressbarSize
-- backgound color: background color of the frame layoput that hosts the progressbar
-- progressBarColor: color of progressBar
-- loadingView: Pass a completely custom View for ultimate control.
+- **progressbarSize**
+- **backgound color**: background color of the frame layoput that hosts the progressbar
+- **progressBarColor**: color of progressBar
+- **loadingView**: Pass a completely custom View for ultimate control.
 
 
 
