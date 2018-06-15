@@ -9,7 +9,9 @@ simply call `targetView.loading(true)`
 
 ### aditional parameters
 progressbarSize,
+
 backgound color: background color of the frame layoput that hosts the progressbar,
+
 progressBarColor: color of progressBar. (Of type ColorStateList per )
 
 Crrently views whose parents are Linear, Frame and Relative Layout are supported(ConstraintLayout not currently supported)
