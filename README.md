@@ -11,7 +11,7 @@ simply call `targetView.loading(true)`
 - progressbarSize
 - backgound color: background color of the frame layoput that hosts the progressbar
 - progressBarColor: color of progressBar
-- loadingView: Pass a completely customView for ultimate control.
+- loadingView: Pass a completely custom View for ultimate control.
 
 
 
