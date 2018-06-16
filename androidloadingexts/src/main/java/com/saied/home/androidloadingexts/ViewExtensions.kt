@@ -16,7 +16,7 @@ import me.zhanghai.android.materialprogressbar.MaterialProgressBar
 const val CONSTANT_ID_OFFSET = 376
 
 fun View.loading(showLoading: Boolean,
-                   progressbarSize: Int = 40,
+                   progressbarSize: Int? = null,
                    backgroundColor: Int = Color.TRANSPARENT,
                    progressbarColor: ColorStateList? = null,
                    loadingView: View = generateLoadingView(progressbarSize = progressbarSize, backgroundColor = backgroundColor, progressTintList = progressbarColor)
@@ -32,28 +32,30 @@ fun View.loading(showLoading: Boolean,
     return loadingView
 }
 
-private fun View.generateLoadingView(progressbarSize: Int, backgroundColor: Int, progressTintList: ColorStateList?): View =
-        FrameLayout(context).apply {
-            addView(View(context).apply {
-                layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
-                setBackgroundColor(backgroundColor)
-            })
-            addView(MaterialProgressBar(context).apply {
-                layoutParams = FrameLayout.LayoutParams(dpToPixel(progressbarSize, context),
-                        dpToPixel(progressbarSize, context)).apply {
-                    gravity = Gravity.CENTER
-                }
-                if(progressTintList != null)
-                    this.progressTintList = progressTintList
-            }
-            )
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                elevation = this@generateLoadingView.elevation
-            }
-            id = this@generateLoadingView.id - CONSTANT_ID_OFFSET
-            isClickable = true
-            isFocusable = true
+private fun View.generateLoadingView(progressbarSize: Int?, backgroundColor: Int, progressTintList: ColorStateList?): View {
+    val materialProgressBar = MaterialProgressBar(context).apply {
+        val progressBarDP = if(progressbarSize != null) dpToPixel(progressbarSize ,context) else minOf(this@generateLoadingView.measuredHeight, this@generateLoadingView.measuredWidth)
+        layoutParams = FrameLayout.LayoutParams(progressBarDP,
+                progressBarDP).apply {
+            gravity = Gravity.CENTER
         }
+        if (progressTintList != null)
+            this.progressTintList = progressTintList
+    }
+    return FrameLayout(context).apply {
+        addView(View(context).apply {
+            layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
+            setBackgroundColor(backgroundColor)
+        })
+        addView(materialProgressBar)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            elevation = this@generateLoadingView.elevation
+        }
+        id = this@generateLoadingView.id - CONSTANT_ID_OFFSET
+        isClickable = true
+        isFocusable = true
+    }
+}
 
 private fun View.loadingSimple(showLoading: Boolean, loadingView: View){
     val container = parent as ViewGroup
@@ -77,8 +79,10 @@ private fun View.loadingLinear(showLoading: Boolean, loadingView: View){
                 topMargin = -(this@loadingLinear.height + bottomMargin)
             else
                 marginStart = -(this@loadingLinear.width + marginEnd)
+            height = this@loadingLinear.measuredHeight
+            width =  this@loadingLinear.measuredWidth
         }
-        container.addView(loadingView, container.indexOfChild(this)+1,loadingLayoutParams)
+        container.addView(loadingView, container.indexOfChild(this)+1, loadingLayoutParams)
     }else{
         container.removeView(container.findViewById(id - CONSTANT_ID_OFFSET))
     }

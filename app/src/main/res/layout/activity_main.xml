@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:background="#f4e1eb">
                 <TextView
+                    android:id="@+id/testTV"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentStart="true"
                     android:text="RelativeLayout"
@@ -74,6 +75,7 @@
                     android:layout_height="wrap_content"
                     android:text="LinearLayoutHorizontal"
                     android:layout_gravity="start"
+                    android:id="@+id/testTV2"
                     />
                 <Button
                     android:id="@+id/loadButtonLinearHorizontal"

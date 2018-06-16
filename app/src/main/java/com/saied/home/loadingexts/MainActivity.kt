@@ -32,6 +32,13 @@ class MainActivity : AppCompatActivity() {
             loadButtonLinearHorizontal.loading(false)
         }
 
+        testTV.setOnClickListener {
+            it.loading(true)
+        }
+        testTV2.setOnClickListener {
+            it.loading(true)
+        }
+
 //        loadButtonLinearNegMargin.setOnClickListener {
 //         it.loading(true)
 //        }
@@ -43,4 +50,6 @@ class MainActivity : AppCompatActivity() {
 //            loadButtonConstraint.loadingV2(false)
 //        }
     }
+
+
 }
