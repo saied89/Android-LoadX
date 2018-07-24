@@ -16,10 +16,10 @@ import me.zhanghai.android.materialprogressbar.MaterialProgressBar
 const val CONSTANT_ID_OFFSET = 376
 
 fun View.loading(showLoading: Boolean,
-                   progressbarSize: Int? = null,
-                   backgroundColor: Int = Color.TRANSPARENT,
-                   progressbarColor: ColorStateList? = null,
-                   loadingView: View = generateLoadingView(progressbarSize = progressbarSize, backgroundColor = backgroundColor, progressTintList = progressbarColor)
+                 progressbarSize: Int? = null,
+                 backgroundColor: Int = Color.TRANSPARENT,
+                 progressbarColor: Int? = null,
+                 loadingView: View = generateLoadingView(progressbarSize = progressbarSize, backgroundColor = backgroundColor, progressColor = progressbarColor)
 ): View{
     if(parent !is ViewGroup)
         throw IllegalStateException("The parent of loading target is not a ViewGroup. Is it the rootView?. Consider wrapping the target in a FrameLayout.")
@@ -32,15 +32,15 @@ fun View.loading(showLoading: Boolean,
     return loadingView
 }
 
-private fun View.generateLoadingView(progressbarSize: Int?, backgroundColor: Int, progressTintList: ColorStateList?): View {
+private fun View.generateLoadingView(progressbarSize: Int?, backgroundColor: Int, progressColor: Int?): View {
     val materialProgressBar = MaterialProgressBar(context).apply {
         val progressBarDP = if(progressbarSize != null) dpToPixel(progressbarSize ,context) else minOf(this@generateLoadingView.measuredHeight, this@generateLoadingView.measuredWidth)
         layoutParams = FrameLayout.LayoutParams(progressBarDP,
                 progressBarDP).apply {
             gravity = Gravity.CENTER
         }
-        if (progressTintList != null)
-            this.progressTintList = progressTintList
+        if (progressColor != null)
+            this.indeterminateDrawable.setColorFilter(progressColor, android.graphics.PorterDuff.Mode.SRC_IN)
     }
     return FrameLayout(context).apply {
         addView(View(context).apply {

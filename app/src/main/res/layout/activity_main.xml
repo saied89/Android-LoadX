@@ -84,49 +84,61 @@
                     style="@style/button" />
             </LinearLayout>
 
-            <!--<LinearLayout-->
-                <!--android:id="@+id/linearLayoutNegMargin"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="200dp"-->
-                <!--android:background="#bcbaff"-->
-                <!--android:orientation="vertical">-->
-                <!--<Button-->
-                    <!--android:id="@+id/loadButtonLinearNegMargin"-->
-                    <!--android:text="@string/load"-->
-                    <!--android:layout_gravity="center"-->
-                    <!--android:layout_marginTop="-32dp"-->
-                    <!--style="@style/button" />-->
-            <!--</LinearLayout>-->
-
-            <!--<android.support.constraint.ConstraintLayout-->
-            <!--android:id="@+id/constraintLayout"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="#88ffdaaa">-->
-
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="8dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:text="constraintLayout"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent" />-->
-            <!--<Button-->
-            <!--android:id="@+id/loadButtonConstraint"-->
-            <!--android:layout_width="148dp"-->
-            <!--android:layout_height="56dp"-->
-            <!--android:layout_margin="32dp"-->
-            <!--android:text="@string/load"-->
-            <!--android:textColor="#ffffff"-->
-            <!--android:background="@color/colorPrimary"-->
-            <!--android:layout_gravity="center"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--/>-->
-            <!--</android.support.constraint.ConstraintLayout>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp">
+                <TextView
+                    android:text="size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <SeekBar
+                    android:id="@+id/sizeSeekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:progress="40"/>
+            </LinearLayout>
+            <View
+                android:background="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/chooseColorButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_gravity="end"
+                    android:background="@color/colorAccent"/>
+                <TextView
+                    android:layout_gravity="center_vertical|start"
+                    android:text="color"
+                    android:layout_marginStart="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+            <View
+                android:background="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <FrameLayout
+                android:id="@+id/loadingTarget"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <TextView
+                    android:text="This is the Loading Target"
+                    android:layout_width="match_parent"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
