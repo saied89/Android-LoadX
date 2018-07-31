@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.support.constraint.ConstraintLayout
+import android.support.constraint.ConstraintSet
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -26,7 +27,7 @@ fun View.loading(showLoading: Boolean,
     else if(parent is LinearLayout)
         loadingLinear(showLoading, loadingView)
     else if(parent is ConstraintLayout)
-        loadingConstraint(showLoading)
+        loadingConstraint(showLoading, loadingView)
     else
         loadingSimple(showLoading, loadingView)
     return loadingView
@@ -66,8 +67,22 @@ private fun View.loadingSimple(showLoading: Boolean, loadingView: View){
     }
 }
 
-private fun View.loadingConstraint(showLoading: Boolean){
-    throw IllegalStateException("Currently not supporting ConstraintLayout")
+private fun View.loadingConstraint(showLoading: Boolean, loadingView: View){
+    val container = parent as ConstraintLayout
+    if(showLoading){
+        val constraintSet = ConstraintSet().apply {
+            clone(container)
+        }
+        val params = ViewGroup.LayoutParams(layoutParams)
+        container.addView(loadingView,params)
+        constraintSet.connect(loadingView.id, ConstraintSet.START, this.id, ConstraintSet.START)
+        constraintSet.connect(loadingView.id, ConstraintSet.TOP, this.id, ConstraintSet.TOP)
+        constraintSet.connect(loadingView.id, ConstraintSet.END, this.id, ConstraintSet.END)
+        constraintSet.connect(loadingView.id, ConstraintSet.BOTTOM, this.id, ConstraintSet.BOTTOM)
+        constraintSet.applyTo(container)
+    }else{
+        container.removeView(container.findViewById(this.id - CONSTANT_ID_OFFSET))
+    }
 }
 
 private fun View.loadingLinear(showLoading: Boolean, loadingView: View){

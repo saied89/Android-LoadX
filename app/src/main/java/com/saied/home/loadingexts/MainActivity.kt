@@ -84,6 +84,12 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
         linearLayoutHorizonal.setOnClickListener {
             loadButtonLinearHorizontal.loading(false)
         }
+        loadButtonConstraintLayout.setOnClickListener {
+            it.loading(true)
+        }
+        constraintLayout.setOnClickListener {
+            loadButtonConstraintLayout.loading(false)
+        }
 
         testTV.setOnClickListener {
             it.loading(true)
