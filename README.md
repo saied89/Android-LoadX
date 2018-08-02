@@ -20,6 +20,6 @@ simply call `targetView.loading(true)`
 
 
 
-Crrently views whose parents are Linear, Frame and Relative Layout and ConstraintLayout are supported.
+Crrently views whose parents are Linear, Frame, Relative and Constraint Layout are supported.
 
 Seeking collabarators(email saiedmomen@gmail.com)
