@@ -5,7 +5,7 @@ The purpose of this project is to provide android developers the ability to add 
 The library uses [MaterialProgressbar](https://github.com/DreaminginCodeZH/MaterialProgressBar)
 
 ### vanilla use
-simply call `targetView.loading(true)`
+simply call `targetView.loadX()` to toggle the loading status of targetView
 
 ### aditional parameters
 - **progressbarSize**
