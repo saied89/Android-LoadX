@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Loading Exts</string>
     <string name="load">load</string>
+    <string name="button">Button</string>
+    <string name="guidelines">Guidelines</string>
+    <string name="centering_views">Centering Views</string>
 </resources>
