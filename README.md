@@ -1,4 +1,4 @@
-# Android Loading Extensions
+# Android LoadX
 
 The purpose of this project is to provide android developers the ability to add a simple yet customisable(Convention over configuration) progressbar on every view by simply calling a Kotlin extension function. The library is extremely light weight with only half a dozen extension functions in a single Kotlin file.
 
