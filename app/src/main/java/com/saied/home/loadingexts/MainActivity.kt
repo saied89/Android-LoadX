@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun load(v: View){
-        v.loadX().apply {
+        v.loadX(hideTarget = true).apply {
             setOnClickListener {
-                v.loadX()
+                v.loadX(hideTarget = false)
             }
         }
     }

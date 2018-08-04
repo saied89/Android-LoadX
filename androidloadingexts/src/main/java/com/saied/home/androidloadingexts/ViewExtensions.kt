@@ -1,7 +1,6 @@
 package com.saied.home.androidloadingexts
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.support.constraint.ConstraintLayout
@@ -17,6 +16,7 @@ import me.zhanghai.android.materialprogressbar.MaterialProgressBar
 const val CONSTANT_ID_OFFSET = 376
 
 fun View.loadX(showLoading: Boolean = !hasLoading(),
+               hideTarget: Boolean = false,
                progressbarSize: Int? = null,
                backgroundColor: Int = Color.TRANSPARENT,
                progressbarColor: Int? = null,
@@ -25,11 +25,11 @@ fun View.loadX(showLoading: Boolean = !hasLoading(),
     if(parent !is ViewGroup)
         throw IllegalStateException("The parent of loadX target is not a ViewGroup. Is it the rootView?. Consider wrapping the target in a FrameLayout.")
     else if(parent is LinearLayout)
-        loadingLinear(showLoading, loadingView)
+        loadingLinear(showLoading, loadingView, hideTarget)
     else if(parent is ConstraintLayout)
-        loadingConstraint(showLoading, loadingView)
+        loadingConstraint(showLoading, loadingView, hideTarget)
     else
-        loadingSimple(showLoading, loadingView)
+        loadingSimple(showLoading, loadingView, hideTarget)
     return loadingView
 }
 
@@ -55,7 +55,7 @@ private fun View.generateLoadingView(progressbarSize: Int?, backgroundColor: Int
         })
         addView(materialProgressBar)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            elevation = this@generateLoadingView.elevation
+            elevation = this@generateLoadingView.elevation + 1
         }
         id = this@generateLoadingView.id - CONSTANT_ID_OFFSET
         isClickable = true
@@ -63,16 +63,17 @@ private fun View.generateLoadingView(progressbarSize: Int?, backgroundColor: Int
     }
 }
 
-private fun View.loadingSimple(showLoading: Boolean, loadingView: View){
+private fun View.loadingSimple(showLoading: Boolean, loadingView: View, invisibleTarget: Boolean){
     val container = parent as ViewGroup
     if(showLoading){
         container.addView(loadingView, container.indexOfChild(this)+1, layoutParams)
     }else{
         container.removeView(container.findViewById(id - CONSTANT_ID_OFFSET))
     }
+    visibility = if(invisibleTarget) View.INVISIBLE else View.VISIBLE
 }
 
-private fun View.loadingConstraint(showLoading: Boolean, loadingView: View){
+private fun View.loadingConstraint(showLoading: Boolean, loadingView: View, invisibleTarget: Boolean){
     val container = parent as ConstraintLayout
     if(showLoading){
         val constraintSet = ConstraintSet().apply {
@@ -88,9 +89,10 @@ private fun View.loadingConstraint(showLoading: Boolean, loadingView: View){
     }else{
         container.removeView(container.findViewById(this.id - CONSTANT_ID_OFFSET))
     }
+    visibility = if(invisibleTarget) View.INVISIBLE else View.VISIBLE
 }
 
-private fun View.loadingLinear(showLoading: Boolean, loadingView: View){
+private fun View.loadingLinear(showLoading: Boolean, loadingView: View, invisibleTarget: Boolean){
     val container = parent as LinearLayout
     if(showLoading){
         val loadingLayoutParams = LinearLayout.LayoutParams(layoutParams as LinearLayout.LayoutParams)
@@ -106,6 +108,7 @@ private fun View.loadingLinear(showLoading: Boolean, loadingView: View){
     }else{
         container.removeView(container.findViewById(id - CONSTANT_ID_OFFSET))
     }
+    visibility = if(invisibleTarget) View.INVISIBLE else View.VISIBLE
 }
 
 fun dpToPixel(dp: Int, context: Context): Int = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), context.resources.displayMetrics).toInt()
