@@ -26,15 +26,17 @@ android {
 
 buildscript {
     ext.arch_comp_version = '1.1.1'
+    ext.support_lib_version = '27.1.1'
 }
 
 dependencies {
     implementation project(":androidloadingexts")
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "com.android.support:appcompat-v7:$support_lib_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'com.jaredrummler:colorpicker:1.0.2'
+    implementation "com.android.support:preference-v7:$support_lib_version"
 
     ////architectural components
     // ViewModel and LiveData

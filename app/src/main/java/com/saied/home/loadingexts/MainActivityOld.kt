@@ -8,7 +8,7 @@ import android.widget.SeekBar
 import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import com.saied.home.androidloadingexts.loadX
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main_old.*
 
 class MainActivityOld : AppCompatActivity(), ColorPickerDialogListener {
     val viewModel: MainViewModel by lazy {
@@ -17,7 +17,7 @@ class MainActivityOld : AppCompatActivity(), ColorPickerDialogListener {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_old)
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         viewModel.loadingParamsViewModel.observe(this, Observer {

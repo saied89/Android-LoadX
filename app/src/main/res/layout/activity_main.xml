@@ -1,179 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    tools:context=".MainActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@color/colorPrimary"
-        android:elevation="4dp">
-        <TextView
-            android:text="Loading Extensions"
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            />
-    </android.support.v7.widget.Toolbar>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:onClick="show"
+            android:tag="constraint_example_3"
+            android:text="@string/centering_views"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:context=".MainActivityOld">
-            <RelativeLayout
-                android:id="@+id/relativeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#f4e1eb">
-                <TextView
-                    android:id="@+id/testTV"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"
-                    android:text="RelativeLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <Button
-                    android:id="@+id/loadButtonRelative"
-                    android:text="@string/load"
-                    android:layout_centerInParent="true"
-                    style="@style/button" />
-            </RelativeLayout>
-            <LinearLayout
-                android:id="@+id/linearLayoutVertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#e9d9ff"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="LinearLayoutVertical"
-                    android:layout_gravity="start"
-                    />
-                <Button
-                    android:id="@+id/loadButtonLinear"
-                    android:text="@string/load"
-                    android:layout_gravity="center"
-                    style="@style/button" />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/linearLayoutHorizonal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#d6ffd6"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="LinearLayoutHorizontal"
-                    android:layout_gravity="start"
-                    android:id="@+id/testTV2"
-                    />
-                <Button
-                    android:id="@+id/loadButtonLinearHorizontal"
-                    android:text="@string/load"
-                    android:layout_gravity="center"
-                    style="@style/button" />
-            </LinearLayout>
+        <!--<Button-->
+            <!--android:id="@+id/button2"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginEnd="16dp"-->
+            <!--android:layout_marginStart="16dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:onClick="show"-->
+            <!--android:tag="constraint_example_2"-->
+            <!--android:text="@string/basic_arrange"-->
+            <!--app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--app:layout_constraintRight_toRightOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button"-->
+            <!--tools:layout_constraintLeft_creator="1"-->
+            <!--tools:layout_constraintRight_creator="1" />-->
 
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout"
-                android:layout_width="match_parent"
-                android:background="#ffec86"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/constraintLayoutLabelTV"
-                    android:text="ConstraintLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <Button
-                    android:id="@+id/loadButtonConstraintLayout"
-                    android:text="@string/load"
-                    style="@style/button"
-                    app:layout_constraintTop_toTopOf="@id/guidelineH"
-                    app:layout_constraintStart_toStartOf="@id/guidelineL"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+        <!--<Button-->
+            <!--android:id="@+id/button15"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:onClick="show"-->
+            <!--android:tag="constraint_example_4"-->
+            <!--android:text="@string/advanced_arrangement"-->
+            <!--app:layout_constraintLeft_toLeftOf="@+id/button30"-->
+            <!--app:layout_constraintRight_toRightOf="@+id/button30"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button30"-->
+            <!--tools:layout_constraintLeft_creator="1"-->
+            <!--tools:layout_constraintRight_creator="1" />-->
 
-                <android.support.constraint.Guideline
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/guidelineH"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.4"/>
+        <!--<Button-->
+            <!--android:id="@+id/button18"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:onClick="show"-->
+            <!--android:tag="constraint_example_5"-->
+            <!--android:text="@string/aspect_ratio"-->
+            <!--app:layout_constraintLeft_toLeftOf="@+id/button15"-->
+            <!--app:layout_constraintRight_toRightOf="@+id/button15"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button15"-->
+            <!--tools:layout_constraintLeft_creator="1"-->
+            <!--tools:layout_constraintRight_creator="1" />-->
 
-                <android.support.constraint.Guideline
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/guidelineL"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.2"/>
+        <!--<Button-->
+            <!--android:id="@+id/button19"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:onClick="show"-->
+            <!--android:tag="constraint_example_6"-->
+            <!--android:text="@string/basic_chains"-->
+            <!--app:layout_constraintLeft_toLeftOf="@+id/button18"-->
+            <!--app:layout_constraintRight_toRightOf="@+id/button18"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button18"-->
+            <!--tools:layout_constraintLeft_creator="1"-->
+            <!--tools:layout_constraintRight_creator="1" />-->
 
-            </android.support.constraint.ConstraintLayout>
+        <!--<Button-->
+            <!--android:id="@+id/button20"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:onClick="showConstraintSetExample"-->
+            <!--android:tag="constraint_example_7"-->
+            <!--android:text="@string/constraintset"-->
+            <!--app:layout_constraintLeft_toLeftOf="@+id/button19"-->
+            <!--app:layout_constraintRight_toRightOf="@+id/button19"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button19"-->
+            <!--tools:layout_constraintLeft_creator="1"-->
+            <!--tools:layout_constraintRight_creator="1" />-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp">
-                <TextView
-                    android:text="size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <SeekBar
-                    android:id="@+id/sizeSeekbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:progress="40"/>
-            </LinearLayout>
-            <View
-                android:background="@color/colorAccent"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"/>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <Button
-                    android:id="@+id/chooseColorButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_gravity="end"
-                    android:background="@color/colorAccent"/>
-                <TextView
-                    android:layout_gravity="center_vertical|start"
-                    android:text="color"
-                    android:layout_marginStart="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </FrameLayout>
-            <View
-                android:background="@color/colorAccent"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"/>
-            <FrameLayout
-                android:id="@+id/loadingTarget"
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
-                <TextView
-                    android:text="This is the Loading Target"
-                    android:layout_width="match_parent"
-                    android:textStyle="bold"
-                    android:textSize="16dp"
-                    android:textAlignment="center"
-                    android:layout_gravity="center"
-                    android:textColor="#000000"
-                    android:layout_height="wrap_content"/>
-            </FrameLayout>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+        <!--<Button-->
+            <!--android:id="@+id/button21"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:onClick="show"-->
+            <!--android:tag="constraint_example_x1"-->
+            <!--android:text="@string/advanced_chains"-->
+            <!--app:layout_constraintLeft_toLeftOf="@+id/button20"-->
+            <!--app:layout_constraintRight_toRightOf="@+id/button20"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button20"-->
+            <!--tools:layout_constraintLeft_creator="1"-->
+            <!--tools:layout_constraintRight_creator="1" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button30"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:onClick="show"-->
+            <!--android:tag="constraint_example_3"-->
+            <!--android:text="@string/guidelines"-->
+            <!--app:layout_constraintLeft_toLeftOf="@+id/button2"-->
+            <!--app:layout_constraintRight_toRightOf="@+id/button2"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button2"-->
+            <!--tools:layout_constraintLeft_creator="1"-->
+            <!--tools:layout_constraintRight_creator="1" />-->
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

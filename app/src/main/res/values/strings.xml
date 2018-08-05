@@ -4,4 +4,5 @@
     <string name="button">Button</string>
     <string name="guidelines">Guidelines</string>
     <string name="centering_views">Centering Views</string>
+    <string name="settings">Settings</string>
 </resources>
