@@ -17,7 +17,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.saied.home.loadingX.MainActivity">
 
     <Button
         android:id="@+id/button4"

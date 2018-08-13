@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivityOld"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.saied.home.loadingX.MainActivityOld"></activity>
+        <activity android:name="com.saied.home.loadingX.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".setting.SettingsActivity"></activity>
+        <activity android:name="com.saied.home.loadingX.setting.SettingsActivity"></activity>
     </application>
 
 </manifest>

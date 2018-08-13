@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".setting.SettingsActivity">
+    tools:context="com.saied.home.loadingX.setting.SettingsActivity">
     <fragment
         android:id="@+id/fragment"
-        android:name="com.saied.home.loadingexts.setting.SettingsFragment"
+        android:name="com.saied.home.loadingX.setting.SettingsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </FrameLayout>

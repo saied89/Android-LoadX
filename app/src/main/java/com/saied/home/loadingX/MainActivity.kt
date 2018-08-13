@@ -1,4 +1,4 @@
-package com.saied.home.loadingexts
+package com.saied.home.loadingX
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -7,7 +7,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.saied.home.androidloadingexts.loadX
-import com.saied.home.loadingexts.setting.SettingsActivity
+import com.saied.home.loadingX.setting.SettingsActivity
+import com.saied.home.loadingexts.R
 
 class MainActivity : AppCompatActivity() {
 

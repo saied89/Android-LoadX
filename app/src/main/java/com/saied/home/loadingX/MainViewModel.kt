@@ -1,9 +1,10 @@
-package com.saied.home.loadingexts
+package com.saied.home.loadingX
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
 import android.support.v4.content.res.ResourcesCompat
+import com.saied.home.loadingexts.R
 
 class MainViewModel(application: Application): AndroidViewModel(application) {
     val loadingParamsViewModel = MutableLiveData<LoadingParams>()

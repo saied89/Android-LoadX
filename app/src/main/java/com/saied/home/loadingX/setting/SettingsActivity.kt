@@ -1,4 +1,4 @@
-package com.saied.home.loadingexts.setting
+package com.saied.home.loadingX.setting
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

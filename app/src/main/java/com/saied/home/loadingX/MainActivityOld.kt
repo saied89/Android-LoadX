@@ -1,16 +1,15 @@
-package com.saied.home.loadingexts
+package com.saied.home.loadingX
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
-import com.jaredrummler.android.colorpicker.ColorPickerDialog
-import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import com.saied.home.androidloadingexts.loadX
+import com.saied.home.loadingexts.R
 import kotlinx.android.synthetic.main.activity_main_old.*
 
-class MainActivityOld : AppCompatActivity(), ColorPickerDialogListener {
+class MainActivityOld : AppCompatActivity() {
     val viewModel: MainViewModel by lazy {
         ViewModelProviders.of(this).get(MainViewModel::class.java)
     }
@@ -40,10 +39,11 @@ class MainActivityOld : AppCompatActivity(), ColorPickerDialogListener {
             }
         })
 
-        chooseColorButton.setOnClickListener {
-            ColorPickerDialog.newBuilder()
-                    .show(this)
-        }
+//        chooseColorButton.setOnClickListener {
+//            ColorPickerDialog.newBuilder()
+//                    .show(this)
+//        }
+
 //        loadButtonLinearNegMargin.setOnClickListener {
 //         it.loadX(true)
 //        }
@@ -56,13 +56,13 @@ class MainActivityOld : AppCompatActivity(), ColorPickerDialogListener {
 //        }
     }
 
-    override fun onColorSelected(dialogId: Int, color: Int) {
-        chooseColorButton.setBackgroundColor(color)
-        viewModel.loadingParamsViewModel.value = viewModel.loadingParamsViewModel.value!!.copy(color = color)
-    }
-
-    override fun onDialogDismissed(dialogId: Int) {
-    }
+//    override fun onColorSelected(dialogId: Int, color: Int) {
+//        chooseColorButton.setBackgroundColor(color)
+//        viewModel.loadingParamsViewModel.value = viewModel.loadingParamsViewModel.value!!.copy(color = color)
+//    }
+//
+//    override fun onDialogDismissed(dialogId: Int) {
+//    }
 
     private fun setupLoadingViews() {
         loadButtonRelative.setOnClickListener {
