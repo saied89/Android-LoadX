@@ -1,14 +1,15 @@
 # Android LoadX
 
-
 Add progressbar on top of every view by simply calling a Kotlin extension function. This will shave at least one level off of view hierarchiy depth! The library is extremely light weight with only half a dozen extension functions in a single Kotlin file. It works by adding a  a view that contains a progressbar, to parent of the target view.
 
 The library uses [MaterialProgressbar](https://github.com/DreaminginCodeZH/MaterialProgressBar)
 
-### vanilla use
+### Usage
+
+#### vanilla use
 simply call `targetView.loadX()` to toggle the loading status of targetView
 
-### aditional parameters
+#### aditional parameters
 - **showLoading**: if a loadingView show be added or removed. Default is toggle.
 - **progressbarSize**: size of the progressbar size. Default is the minimum of height and width of the target view.
 - **backgound color**: background color of the frame layoput that hosts the progressbar. Default is transparent.
