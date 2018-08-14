@@ -3,6 +3,9 @@ package com.saied.home.loadingX
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.preference.PreferenceManager
+import android.util.DisplayMetrics
+import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -12,6 +15,9 @@ import com.saied.home.loadingexts.R
 
 class MainActivity : AppCompatActivity() {
 
+    val sharedPreferences by lazy {
+        PreferenceManager.getDefaultSharedPreferences(this)
+    }
     private var mShowingLayout = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,11 +32,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun load(v: View){
-        v.loadX(hideTarget = true).apply {
+        val hideTarget = sharedPreferences.getBoolean(getString(R.string.hideTarget), false)
+        val progressBarSize = dpToPixel(sharedPreferences.getInt(getString(R.string.progressSize), 0), resources.displayMetrics)
+        val progressColor = sharedPreferences.getInt(getString(R.string.progressColor), 0)
+        val progressBgColor = sharedPreferences.getInt(getString(R.string.progressBGColor), 0)
+        v.loadX(hideTarget = hideTarget, progressbarSize = progressBarSize, progressbarColor = progressColor, backgroundColor = progressBgColor).apply {
             setOnClickListener {
-                v.loadX(hideTarget = false)
+                v.loadX()
             }
         }
+//        v.twinkle()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -53,6 +64,8 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
+    fun dpToPixel(dp: Int, metrics: DisplayMetrics?) = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), metrics).toInt()
 
 
 }

@@ -20,28 +20,28 @@
             android:layout_marginTop="16dp"
             android:onClick="show"
             android:tag="constraint_example_3"
-            android:text="@string/centering_views"
+            android:text="@string/constraint_guidelines"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1" />
 
-        <!--<Button-->
-            <!--android:id="@+id/button2"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="16dp"-->
-            <!--android:layout_marginStart="16dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:onClick="show"-->
-            <!--android:tag="constraint_example_2"-->
-            <!--android:text="@string/basic_arrange"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/button"-->
-            <!--tools:layout_constraintLeft_creator="1"-->
-            <!--tools:layout_constraintRight_creator="1" />-->
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:onClick="show"
+            android:tag="layout_all_layouts"
+            android:text="all layouts"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
         <!--<Button-->
             <!--android:id="@+id/button15"-->

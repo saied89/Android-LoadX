@@ -7,7 +7,6 @@ import android.support.v7.preference.R.id.seekbar_value
 import android.support.v7.widget.AppCompatSeekBar
 import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -22,7 +21,7 @@ class SettingsFragment: PreferenceFragmentCompat() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         listView.viewTreeObserver.addOnDrawListener {
-            val sizePref = findPreference(getString(R.string.size))
+            val sizePref = findPreference(getString(R.string.progressSize))
 
             val prefView: View? = listView.layoutManager.findViewByPosition(sizePref.order)
             prefView?.apply {

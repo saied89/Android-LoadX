@@ -1,13 +1,12 @@
 package com.saied.home.loadingX
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.SeekBar
 import com.saied.home.androidloadingexts.loadX
 import com.saied.home.loadingexts.R
 import kotlinx.android.synthetic.main.activity_main_old.*
+import kotlinx.android.synthetic.main.layout_all_layouts.*
 
 class MainActivityOld : AppCompatActivity() {
     val viewModel: MainViewModel by lazy {
@@ -19,25 +18,6 @@ class MainActivityOld : AppCompatActivity() {
         setContentView(R.layout.activity_main_old)
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
-        viewModel.loadingParamsViewModel.observe(this, Observer {
-            loadingTarget.loadX(false)
-            loadingTarget.loadX(true, progressbarSize = it!!.size, progressbarColor = it.color)
-        })
-        setupLoadingViews()
-
-        sizeSeekbar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                viewModel.loadingParamsViewModel.value = viewModel.loadingParamsViewModel.value!!.copy(size = progress)
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-
-            }
-        })
 
 //        chooseColorButton.setOnClickListener {
 //            ColorPickerDialog.newBuilder()

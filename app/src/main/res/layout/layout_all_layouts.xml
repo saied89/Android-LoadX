@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/activity_main_old">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="com.saied.home.loadingX.MainActivityOld">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f4e1eb">
+
+            <TextView
+                android:id="@+id/testTV"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:text="RelativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/loadButtonRelative"
+                android:text="@string/load"
+                android:layout_centerInParent="true"
+                android:onClick="load"
+                style="@style/button" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutVertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e9d9ff"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinearLayoutVertical"
+                android:layout_gravity="start" />
+
+            <Button
+                android:id="@+id/loadButtonLinear"
+                android:text="@string/load"
+                android:layout_gravity="center"
+                android:onClick="load"
+                style="@style/button" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutHorizonal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d6ffd6"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinearLayoutHorizontal"
+                android:layout_gravity="start"
+                android:id="@+id/testTV2" />
+
+            <Button
+                android:id="@+id/loadButtonLinearHorizontal"
+                android:text="@string/load"
+                android:layout_gravity="center"
+                android:onClick="load"
+                style="@style/button" />
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:background="#ffec86"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/constraintLayoutLabelTV"
+                android:text="ConstraintLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/loadButtonConstraintLayout"
+                android:text="@string/load"
+                style="@style/button"
+                android:onClick="load"
+                app:layout_constraintTop_toTopOf="@id/guidelineH"
+                app:layout_constraintStart_toStartOf="@id/guidelineL"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <android.support.constraint.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guidelineH"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4" />
+
+            <android.support.constraint.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guidelineL"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.2" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+</ScrollView>
