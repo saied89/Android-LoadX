@@ -6,8 +6,7 @@ The library uses [MaterialProgressbar](https://github.com/DreaminginCodeZH/Mater
 
 ### Usage
 
-#### vanilla use
-simply call `targetView.loadX()` to toggle the loading status of targetView
+Simply call `targetView.loadX()` to toggle the loading status of targetView
 
 #### aditional parameters
 - **showLoading**: if a loadingView show be added or removed. Default is toggle.
