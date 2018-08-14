@@ -1,6 +1,7 @@
 # Android LoadX
 
-The purpose of this project is to provide android developers the ability to add a simple yet customisable(Convention over configuration) progressbar on every view by simply calling a Kotlin extension function. The library is extremely light weight with only half a dozen extension functions in a single Kotlin file.
+
+Add progressbar on top of every view by simply calling a Kotlin extension function. This will shave at least one level off of view hierarchiy depth! The library is extremely light weight with only half a dozen extension functions in a single Kotlin file. It works by adding a  a view that contains a progressbar, to parent of the target view.
 
 The library uses [MaterialProgressbar](https://github.com/DreaminginCodeZH/MaterialProgressBar)
 
@@ -8,10 +9,11 @@ The library uses [MaterialProgressbar](https://github.com/DreaminginCodeZH/Mater
 simply call `targetView.loadX()` to toggle the loading status of targetView
 
 ### aditional parameters
-- **progressbarSize**
-- **backgound color**: background color of the frame layoput that hosts the progressbar
-- **progressBarColor**: color of progressBar
-- **loadingView**: Pass a completely custom View for ultimate control.
+- **showLoading**: if a loadingView show be added or removed. Default is toggle.
+- **progressbarSize**: size of the progressbar size. Default is the minimum of height and width of the target view.
+- **backgound color**: background color of the frame layoput that hosts the progressbar. Default is transparent.
+- **progressBarColor**: color of progressBar. Default is theme accent color.
+- **loadingView**: Pass a completely custom View for ultimate control. Default is a `FrameLayout` hosting a progressbar and is configurable by above parameters.
 
 
 
@@ -22,4 +24,3 @@ simply call `targetView.loadX()` to toggle the loading status of targetView
 
 Crrently views whose parents are Linear, Frame, Relative and Constraint Layout are supported.
 
-Seeking collabarators(email saiedmomen@gmail.com)
