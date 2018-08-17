@@ -1,11 +1,9 @@
 package com.saied.home.androidloadingexts
 
-import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
-import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -95,12 +93,18 @@ private fun View.loadingConstraint(showLoading: Boolean, loadingView: View, invi
 private fun View.loadingLinear(showLoading: Boolean, loadingView: View, invisibleTarget: Boolean){
     val container = parent as LinearLayout
     if(showLoading){
-        val loadingLayoutParams = LinearLayout.LayoutParams(layoutParams as LinearLayout.LayoutParams)
+        val loadingLayoutParams = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            LinearLayout.LayoutParams(layoutParams as LinearLayout.LayoutParams)
+        } else {
+            duplicateLinearParams(layoutParams as LinearLayout.LayoutParams)
+        }
         loadingLayoutParams.apply {
             if(container.orientation == LinearLayout.VERTICAL)
                 topMargin = -(this@loadingLinear.height + bottomMargin)
             else
-                marginStart = -(this@loadingLinear.width + marginEnd)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    marginStart = -(this@loadingLinear.width + marginEnd)
+                }
             height = this@loadingLinear.measuredHeight
             width =  this@loadingLinear.measuredWidth
         }
@@ -111,5 +115,4 @@ private fun View.loadingLinear(showLoading: Boolean, loadingView: View, invisibl
     visibility = if(invisibleTarget) View.INVISIBLE else View.VISIBLE
 }
 
-fun dpToPixel(dp: Int, context: Context): Int = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), context.resources.displayMetrics).toInt()
 
