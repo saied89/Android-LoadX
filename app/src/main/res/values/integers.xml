@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer-array name="colorChoices">
-        <item>1441632400</item>
-    </integer-array>
+    <array name="colorChoices">
+        <item>#55ED9090</item>
+        <item>#00FFFFFF</item>
+    </array>
 </resources>

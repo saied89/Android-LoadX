@@ -23,11 +23,12 @@ fun View.loadX(showLoading: Boolean = !hasLoading(),
     if(parent !is ViewGroup)
         throw IllegalStateException("The parent of loadX target is not a ViewGroup. Is it the rootView?. Consider wrapping the target in a FrameLayout.")
     else if(parent is LinearLayout)
-        loadingLinear(showLoading, loadingView, hideTarget)
+        loadingLinear(showLoading, loadingView)
     else if(parent is ConstraintLayout)
-        loadingConstraint(showLoading, loadingView, hideTarget)
+        loadingConstraint(showLoading, loadingView)
     else
-        loadingSimple(showLoading, loadingView, hideTarget)
+        loadingSimple(showLoading, loadingView)
+    visibility = if(hideTarget && showLoading) View.INVISIBLE else View.VISIBLE
     return loadingView
 }
 
@@ -61,17 +62,16 @@ private fun View.generateLoadingView(progressbarSize: Int?, backgroundColor: Int
     }
 }
 
-private fun View.loadingSimple(showLoading: Boolean, loadingView: View, invisibleTarget: Boolean){
+private fun View.loadingSimple(showLoading: Boolean, loadingView: View){
     val container = parent as ViewGroup
     if(showLoading){
         container.addView(loadingView, container.indexOfChild(this)+1, layoutParams)
     }else{
         container.removeView(container.findViewById(id - CONSTANT_ID_OFFSET))
     }
-    visibility = if(invisibleTarget) View.INVISIBLE else View.VISIBLE
 }
 
-private fun View.loadingConstraint(showLoading: Boolean, loadingView: View, invisibleTarget: Boolean){
+private fun View.loadingConstraint(showLoading: Boolean, loadingView: View){
     val container = parent as ConstraintLayout
     if(showLoading){
         val constraintSet = ConstraintSet().apply {
@@ -87,10 +87,9 @@ private fun View.loadingConstraint(showLoading: Boolean, loadingView: View, invi
     }else{
         container.removeView(container.findViewById(this.id - CONSTANT_ID_OFFSET))
     }
-    visibility = if(invisibleTarget) View.INVISIBLE else View.VISIBLE
 }
 
-private fun View.loadingLinear(showLoading: Boolean, loadingView: View, invisibleTarget: Boolean){
+private fun View.loadingLinear(showLoading: Boolean, loadingView: View){
     val container = parent as LinearLayout
     if(showLoading){
         val loadingLayoutParams = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -112,7 +111,6 @@ private fun View.loadingLinear(showLoading: Boolean, loadingView: View, invisibl
     }else{
         container.removeView(container.findViewById(id - CONSTANT_ID_OFFSET))
     }
-    visibility = if(invisibleTarget) View.INVISIBLE else View.VISIBLE
 }
 
 
