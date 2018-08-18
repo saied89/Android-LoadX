@@ -14,6 +14,9 @@ Add this snippet to your gradle dependencies. Make sure you have Jcenter in your
 implementation 'com.saied.android:loadX:1.0.2'
 ```
 
+### Try it out
+Get the [app](https://github.com/saied89/Android-LoadX/releases/download/1.0.2/app-release.apk)
+
 ### Usage
 
 Simply call `targetView.loadX()` to toggle the loading status of targetView
