@@ -39,10 +39,11 @@ You can call Kotlin extention functions form java. For this library its like thi
 ```Java
 ViewExtensionsKt.loadX(targetView);
 ```
-
+### Return param
 The function returns the `loadingView` so you can further customize it.
 
-Crrently views whose parents are Linear, Frame, Relative and Constraint Layout are supported.
+### Views Supported
+Currently views whose parents are Linear, Frame, Relative and Constraint Layout are supported.
 
 PR's and issues are cherished!
 
