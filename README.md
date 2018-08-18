@@ -9,7 +9,7 @@ The library uses [MaterialProgressbar](https://github.com/DreaminginCodeZH/Mater
 minSdkVersion 16
 
 ### Setup
-Add this snippet to your gradle. Make sure you have Jcenter in your repositories.
+Add this snippet to your gradle dependencies. Make sure you have Jcenter in your repositories.
 ```groovy
 implementation 'com.saied.android:loadX:1.0.2'
 ```
