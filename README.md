@@ -34,6 +34,11 @@ Simply call `targetView.loadX()` to toggle the loading status of targetView
 ```kotlin
 targetView.loadX(hideTarget = hideTarget, progressbarSize = progressBarSize, progressbarColor = progressColor, backgroundColor = progressBgColor)
 ```
+### Java Usage
+You can call Kotlin extention functions form java. For this library its like this:
+```Java
+ViewExtensionsKt.loadX(targetView);
+```
 
 The function returns the `loadingView` so you can further customize it.
 
