@@ -18,7 +18,7 @@
         android:key="@string/progressColor" />
 
     <com.kizitonwose.colorpreferencecompat.ColorPreferenceCompat
-        android:defaultValue="@color/white"
+        android:defaultValue="#00FFFFFF"
         android:title="Progress background Color"
         android:summary="background color of progressbar"
         android:key="@string/progressBGColor"
