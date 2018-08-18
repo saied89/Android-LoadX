@@ -31,11 +31,7 @@ targetView.loadX(hideTarget = hideTarget, progressbarSize = progressBarSize, pro
 
 The function returns the `loadingView` so you can further customize it.
 
-
-
-
-
-
-
 Crrently views whose parents are Linear, Frame, Relative and Constraint Layout are supported.
+
+PR's and issues are cherished!
 
