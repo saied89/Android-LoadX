@@ -1,4 +1,5 @@
 # Android LoadX
+[ ![Download](https://api.bintray.com/packages/saied89/loadx/LoadX/images/download.svg) ](https://bintray.com/saied89/loadx/LoadX/_latestVersion)
 
 You don't need to bake the Loading into your layouts anymore!  Add ProgressBar on top of every view simply by calling a Kotlin Extension function. Guaranteed to reduce the depth of your layout tree by at least 1.
 
