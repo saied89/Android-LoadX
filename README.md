@@ -26,7 +26,7 @@ Simply call `targetView.loadX()` to toggle the loading status of targetView
 - **loadingView**: Pass a completely custom View for ultimate control. Default is a `FrameLayout` hosting a progressbar and is configurable by above parameters.
 
 ```kotlin
-loadX(hideTarget = hideTarget, progressbarSize = progressBarSize, progressbarColor = progressColor, backgroundColor = progressBgColor)
+targetView.loadX(hideTarget = hideTarget, progressbarSize = progressBarSize, progressbarColor = progressColor, backgroundColor = progressBgColor)
 ```
 
 
