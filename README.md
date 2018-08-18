@@ -1,6 +1,6 @@
 # Android LoadX
 
-You don't need to bake the Loading into your layouts anymore! Add ProgressBar on top of every view simply by calling a Kotlin Extension function. Guaranteed to reduce the depth of your layout tree by at least 1.
+You don't need to bake the Loading into your layouts anymore!  Add ProgressBar on top of every view simply by calling a Kotlin Extension function. Guaranteed to reduce the depth of your layout tree by at least 1.
 
  The library is extremely light weight with only half a dozen extension functions in a single Kotlin file. It works by adding a  a view that contains a progressbar, to parent of the target view.
 
