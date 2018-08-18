@@ -10,7 +10,7 @@ minSdkVersion 16
 
 ### Setup
 Add this snippet to your gradle. Make sure you have Jcenter in your repositories.
-```
+```groovy
 implementation 'com.saied.android:loadX:1.0.2'
 ```
 
@@ -24,6 +24,10 @@ Simply call `targetView.loadX()` to toggle the loading status of targetView
 - **backgound color**: background color of the frame layoput that hosts the progressbar. Default is transparent.
 - **progressBarColor**: color of progressBar. Default is theme accent color.
 - **loadingView**: Pass a completely custom View for ultimate control. Default is a `FrameLayout` hosting a progressbar and is configurable by above parameters.
+
+```kotlin
+loadX(hideTarget = hideTarget, progressbarSize = progressBarSize, progressbarColor = progressColor, backgroundColor = progressBgColor)
+```
 
 
 
