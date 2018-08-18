@@ -4,6 +4,16 @@ Add progressbar on top of every view by simply calling a Kotlin extension functi
 
 The library uses [MaterialProgressbar](https://github.com/DreaminginCodeZH/MaterialProgressBar)
 
+### Requirements
+
+minSdkVersion 16
+
+### Setup
+
+```
+implementation 'com.saied.android:loadX:1.0.2'
+```
+
 ### Usage
 
 Simply call `targetView.loadX()` to toggle the loading status of targetView
