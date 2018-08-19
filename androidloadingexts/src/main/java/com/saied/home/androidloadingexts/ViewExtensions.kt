@@ -55,15 +55,13 @@ private fun View.generateLoadingView(progressbarSize: Int?, backgroundColor: Int
     return FrameLayout(context).apply {
         addView(View(context).apply {
             layoutParams = FrameLayout.LayoutParams(this@generateLoadingView.width, this@generateLoadingView.height)
-            setBackgroundColor(backgroundColor)
         })
+        setBackgroundColor(backgroundColor)
         addView(materialProgressBar)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             elevation = this@generateLoadingView.elevation + 1
         }
         id = this@generateLoadingView.id - CONSTANT_ID_OFFSET
-        isClickable = true
-        isFocusable = true
     }
 }
 

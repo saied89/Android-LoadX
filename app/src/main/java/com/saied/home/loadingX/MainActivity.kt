@@ -37,19 +37,18 @@ class MainActivity : AppCompatActivity() {
 //        val progressColor = sharedPreferences.getInt(getString(R.string.progressColor), 0)
 //        val progressBgColor = sharedPreferences.getInt(getString(R.string.progressBGColor), 0)
 //        v.loadX(hideTarget = hideTarget, progressbarSize = progressBarSize, progressbarColor = progressColor, backgroundColor = progressBgColor).apply {
-//            setOnClickListener {
+//            this?.setOnClickListener {
 //                v.loadX()
 //            }
 //        }
 //    }
 
     fun load(v: View){
-        v.isEnabled = false
-        v.loadX().apply {
-            setOnClickListener {
-                v.loadX()
-                v.isEnabled = true
-            }
+        v.isEnabled = !v.isEnabled
+        val loadView = v.loadX()
+        loadView?.setOnClickListener {
+            v.isEnabled = true
+            v.loadX()
         }
     }
 
