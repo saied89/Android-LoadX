@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 //    }
 
     fun load(v: View){
-        v.isEnabled = !v.isEnabled
+        v.isEnabled = false
         val loadView = v.loadX()
         loadView?.setOnClickListener {
             v.isEnabled = true
