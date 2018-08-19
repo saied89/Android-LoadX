@@ -28,7 +28,7 @@ Simply call `targetView.loadX()` to toggle the loading status of targetView.
 You can write your layouts without having to think about Loading and progressBar. 
 Here is a SMS code verification page with a [simple layout](https://github.com/saied89/Android-LoadX/blob/master/app/src/main/res/layout/layout_verify.xml). 
 
-![verify_sample](https://github.com/saied89/Android-LoadX/blob/master/20180819_220650.gif)
+![verify_sample](https://github.com/saied89/Android-LoadX/blob/master/20180820_003358.gif)
 
 Here is how loading is added in view's onClicks. 
 ```kotlin
