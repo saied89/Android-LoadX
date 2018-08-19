@@ -19,15 +19,20 @@ fun View.loadX(showLoading: Boolean = !hasLoading(),
                backgroundColor: Int = Color.TRANSPARENT,
                progressbarColor: Int? = null,
                loadingView: View = generateLoadingView(progressbarSize = progressbarSize, backgroundColor = backgroundColor, progressColor = progressbarColor)
-): View{
+): View?{
+    if(!showLoading){
+        val container = parent as ViewGroup
+        container.removeView(container.findViewById(this.id - CONSTANT_ID_OFFSET))
+        return null
+    }
     if(parent !is ViewGroup)
         throw IllegalStateException("The parent of loadX target is not a ViewGroup. Is it the rootView?. Consider wrapping the target in a FrameLayout.")
     else if(parent is LinearLayout)
-        loadingLinear(showLoading, loadingView)
+        loadingLinear(loadingView)
     else if(parent is ConstraintLayout)
-        loadingConstraint(showLoading, loadingView)
+        loadingConstraint(loadingView)
     else
-        loadingSimple(showLoading, loadingView)
+        loadingSimple(loadingView)
     visibility = if(hideTarget && showLoading) View.INVISIBLE else View.VISIBLE
     return loadingView
 }
@@ -62,55 +67,43 @@ private fun View.generateLoadingView(progressbarSize: Int?, backgroundColor: Int
     }
 }
 
-private fun View.loadingSimple(showLoading: Boolean, loadingView: View){
+private fun View.loadingSimple(loadingView: View){
     val container = parent as ViewGroup
-    if(showLoading){
-        container.addView(loadingView, container.indexOfChild(this)+1, layoutParams)
-    }else{
-        container.removeView(container.findViewById(id - CONSTANT_ID_OFFSET))
-    }
+    container.addView(loadingView, container.indexOfChild(this)+1, layoutParams)
 }
 
-private fun View.loadingConstraint(showLoading: Boolean, loadingView: View){
+private fun View.loadingConstraint(loadingView: View){
     val container = parent as ConstraintLayout
-    if(showLoading){
-        val constraintSet = ConstraintSet().apply {
-            clone(container)
-        }
-        val params = ViewGroup.LayoutParams(layoutParams)
-        container.addView(loadingView,params)
-        constraintSet.connect(loadingView.id, ConstraintSet.START, this.id, ConstraintSet.START)
-        constraintSet.connect(loadingView.id, ConstraintSet.TOP, this.id, ConstraintSet.TOP)
-        constraintSet.connect(loadingView.id, ConstraintSet.END, this.id, ConstraintSet.END)
-        constraintSet.connect(loadingView.id, ConstraintSet.BOTTOM, this.id, ConstraintSet.BOTTOM)
-        constraintSet.applyTo(container)
-    }else{
-        container.removeView(container.findViewById(this.id - CONSTANT_ID_OFFSET))
+    val constraintSet = ConstraintSet().apply {
+        clone(container)
     }
+    val params = ViewGroup.LayoutParams(layoutParams)
+    container.addView(loadingView,params)
+    constraintSet.connect(loadingView.id, ConstraintSet.START, this.id, ConstraintSet.START)
+    constraintSet.connect(loadingView.id, ConstraintSet.TOP, this.id, ConstraintSet.TOP)
+    constraintSet.connect(loadingView.id, ConstraintSet.END, this.id, ConstraintSet.END)
+    constraintSet.connect(loadingView.id, ConstraintSet.BOTTOM, this.id, ConstraintSet.BOTTOM)
+    constraintSet.applyTo(container)
 }
 
-private fun View.loadingLinear(showLoading: Boolean, loadingView: View){
+private fun View.loadingLinear(loadingView: View){
     val container = parent as LinearLayout
-    if(showLoading){
-        val loadingLayoutParams = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            LinearLayout.LayoutParams(layoutParams as LinearLayout.LayoutParams)
-        } else {
-            duplicateLinearParams(layoutParams as LinearLayout.LayoutParams)
-        }
-        loadingLayoutParams.apply {
-            if(container.orientation == LinearLayout.VERTICAL)
-                topMargin = -(this@loadingLinear.height + bottomMargin)
-            else
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                    marginStart = -(this@loadingLinear.width + marginEnd)
-                }
-            height = this@loadingLinear.measuredHeight
-            width =  this@loadingLinear.measuredWidth
-        }
-        container.addView(loadingView, container.indexOfChild(this)+1, loadingLayoutParams)
-    }else{
-        container.removeView(container.findViewById(id - CONSTANT_ID_OFFSET))
+    val loadingLayoutParams = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        LinearLayout.LayoutParams(layoutParams as LinearLayout.LayoutParams)
+    } else {
+        duplicateLinearParams(layoutParams as LinearLayout.LayoutParams)
     }
+    loadingLayoutParams.apply {
+        if(container.orientation == LinearLayout.VERTICAL)
+            topMargin = -(this@loadingLinear.height + bottomMargin)
+        else
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                marginStart = -(this@loadingLinear.width + marginEnd)
+            }
+        height = this@loadingLinear.measuredHeight
+        width =  this@loadingLinear.measuredWidth
+    }
+    container.addView(loadingView, container.indexOfChild(this)+1, loadingLayoutParams)
 }
 
 
