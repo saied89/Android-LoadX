@@ -49,7 +49,7 @@ private fun View.generateLoadingView(progressbarSize: Int?, backgroundColor: Int
     }
     return FrameLayout(context).apply {
         addView(View(context).apply {
-            layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
+            layoutParams = FrameLayout.LayoutParams(this@generateLoadingView.width, this@generateLoadingView.height)
             setBackgroundColor(backgroundColor)
         })
         addView(materialProgressBar)
