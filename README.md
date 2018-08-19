@@ -22,7 +22,25 @@ Get the [app](https://github.com/saied89/Android-LoadX/releases/download/1.0.2/a
 
 ### Usage
 
-Simply call `targetView.loadX()` to toggle the loading status of targetView
+Simply call `targetView.loadX()` to toggle the loading status of targetView.
+
+##### Example
+You can write your layouts without having to think about Loading and progressBar. 
+Here is a SMS code verification page with a [simple layout](https://github.com/saied89/Android-LoadX/blob/master/app/src/main/res/layout/layout_verify.xml). 
+
+![verify_sample](https://github.com/saied89/Android-LoadX/blob/master/20180819_220650.gif)
+
+Here is how loading is added in view's onClicks. 
+```kotlin
+fun load(v: View){
+        v.isEnabled = !v.isEnabled
+        val loadView = v.loadX()
+        loadView?.setOnClickListener {
+            v.isEnabled = true
+            v.loadX()
+        }
+}
+```
 
 #### aditional parameters
 - **showLoading**: if a loadingView show be added or removed. Default is toggle.
