@@ -18,7 +18,7 @@ implementation 'com.saied.android:loadX:<latest_version>'
 ```
 
 ### Try it out
-Get the [app](https://github.com/saied89/Android-LoadX/releases/download/1.0.2/app-release.apk)
+Get the [app](https://github.com/saied89/Android-LoadX/releases/download/v1.0.4/app-release.apk)
 
 ### Usage
 
