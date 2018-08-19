@@ -14,7 +14,7 @@ minSdkVersion 16
 ### Setup
 Add this snippet to your gradle dependencies. Make sure you have Jcenter in your repositories.
 ```groovy
-implementation 'com.saied.android:loadX:1.0.3'
+implementation 'com.saied.android:loadX:<latest_version>'
 ```
 
 ### Try it out
