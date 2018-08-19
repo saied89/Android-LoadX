@@ -36,6 +36,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$support_lib_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation "com.android.support:preference-v7:$support_lib_version"
+    implementation "com.android.support:design:$support_lib_version"
 
     ///widgets
     implementation 'com.github.kizitonwose.colorpreference:support:1.0.6'
@@ -43,6 +44,7 @@ dependencies {
     ////architectural components
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$arch_comp_version"
+    implementation "com.android.support:support-v4:$support_lib_version"
     kapt "android.arch.lifecycle:compiler:$arch_comp_version"
     // Test helpers for LiveData
     testImplementation "android.arch.core:core-testing:$arch_comp_version"

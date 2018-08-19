@@ -31,23 +31,32 @@ class MainActivity : AppCompatActivity() {
         mShowingLayout = true
     }
 
+//    fun load(v: View){
+//        val hideTarget = sharedPreferences.getBoolean(getString(R.string.hideTarget), false)
+//        val progressBarSize = dpToPixel(sharedPreferences.getInt(getString(R.string.progressSize), 0), resources.displayMetrics)
+//        val progressColor = sharedPreferences.getInt(getString(R.string.progressColor), 0)
+//        val progressBgColor = sharedPreferences.getInt(getString(R.string.progressBGColor), 0)
+//        v.loadX(hideTarget = hideTarget, progressbarSize = progressBarSize, progressbarColor = progressColor, backgroundColor = progressBgColor).apply {
+//            setOnClickListener {
+//                v.loadX()
+//            }
+//        }
+//    }
+
     fun load(v: View){
-        val hideTarget = sharedPreferences.getBoolean(getString(R.string.hideTarget), false)
-        val progressBarSize = dpToPixel(sharedPreferences.getInt(getString(R.string.progressSize), 0), resources.displayMetrics)
-        val progressColor = sharedPreferences.getInt(getString(R.string.progressColor), 0)
-        val progressBgColor = sharedPreferences.getInt(getString(R.string.progressBGColor), 0)
-        v.loadX(hideTarget = hideTarget, progressbarSize = progressBarSize, progressbarColor = progressColor, backgroundColor = progressBgColor).apply {
+        v.isEnabled = false
+        v.loadX().apply {
             setOnClickListener {
                 v.loadX()
+                v.isEnabled = true
             }
         }
-//        v.twinkle()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.main, menu)
+//        return true
+//    }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId){
