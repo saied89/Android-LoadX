@@ -33,7 +33,7 @@ Here is a SMS code verification page with a [simple layout](https://github.com/s
 Here is how loading is added in view's onClicks. 
 ```kotlin
 fun load(v: View){
-        v.isEnabled = !v.isEnabled
+        v.isEnabled = false
         val loadView = v.loadX()
         loadView?.setOnClickListener {
             v.isEnabled = true
